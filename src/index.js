@@ -1,17 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React,{useContext} from "react";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import WholeApp from "./components/WholeApp";
+import Login from "./login/Login.jsx";
+import Register from "./login/Register.jsx";
+import Auth from "./login/Auth.jsx";
+import LoginAuth from "./login/LoginAuth.jsx";
+import RegisterAuth from "./login/RegisterAuth.jsx";
+import CurrentUser from "./login/CurrentUser.jsx";
+// import {LoginAuth} from "./login/LoginAuth.jsx";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { useNavigate } from "react-router";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <StrictMode>
+    {/* <BrowserRouter>
+    <Routes>
+    <Route exact path="/" element={
+      
+    } /> */}
+   
+    <RegisterAuth>
+    <LoginAuth>
+    <CurrentUser>
+      <Auth>
+       {/* <Login />   */}
+      <WholeApp />
+      {/* <Register /> */}
+      </Auth>
+    </CurrentUser>
+    </LoginAuth>
+      </RegisterAuth>
+    {/* </Routes>
+    </BrowserRouter> */}
+  </StrictMode>
+  
+);
