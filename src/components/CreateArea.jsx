@@ -1,7 +1,7 @@
 import React,{useState,useContext} from "react";
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import LoupeIcon from '@mui/icons-material/Loupe';
-// import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import Fab from '@mui/material/Fab';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -46,7 +46,7 @@ function CreateArea(props){
         };
             try{
                 const body = JSON.stringify(post);
-                await axios.post("/post",body,config);
+                await axios.post("http://localhost:3001/post",body,config);
                 setPost({
                    date:"",
                    time:"",
@@ -73,7 +73,7 @@ function CreateArea(props){
   };
       try{
         const body = JSON.stringify(editPost);
-        await axios.post(`/edit/${id}`,body,config);
+        await axios.post(`http://localhost:3001/edit/${id}`,body,config);
         // window.location.reload();
         // setPost({
         //   date:"",
@@ -129,7 +129,8 @@ function CreateArea(props){
         <div className="backButton createArea" >
               <Fab onClick={()=>{
                 props.handleBackBtn()
-              }} > +
+              }} > 
+              <span class="material-symbols-outlined">close</span>
               {/* <ArrowBackIcon /> */}
               </Fab></div>
             <label>Date and Time:</label>
@@ -145,8 +146,9 @@ function CreateArea(props){
             <label>How did i React?</label>
             <input onChange={props.isEdit ?handleEdit: handleChange} name="response" placeholder="How?" defaultValue={props.isEdit ? props.reaction : null } required autoComplete="off"/>
             <div className="saveBtn">
-              <Fab onClick={handleForm} type="submit">+
-              {/* <SaveAltIcon/> */}
+              <Fab onClick={handleForm} type="submit">
+              <SaveAltIcon/>
+              {/* <span class="material-symbols-outlined">check</span> */}
               { isLoading && <CircularProgress
             size={68}
             sx={{

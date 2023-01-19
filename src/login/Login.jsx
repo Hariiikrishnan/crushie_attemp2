@@ -67,7 +67,7 @@ function Login(){
         };
         try{
             const body = JSON.stringify(loginAccount);
-           await axios.post("/login",body,config).then((res)=>{
+           await axios.post("http://localhost:3001/login",body,config).then((res)=>{
           
     // setCurrentUser(finalUser);
     //         setCurrentUser(res.data.users.filter((singleUser)=>{

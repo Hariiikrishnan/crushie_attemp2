@@ -75,7 +75,7 @@ function Register(){
         };
         try{
             const body = JSON.stringify(userAccount);
-            await axios.post("/register",body,config).then((res)=>{
+            await axios.post("http://localhost:3001/register",body,config).then((res)=>{
                 console.log(res.data);
                 setAuthState(res.data.token);
             })

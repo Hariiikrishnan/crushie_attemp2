@@ -38,7 +38,7 @@ function Post(props) {
           onClick={() => {
             props.handleBackBtn();
           }}
-          >+
+          ><span class="material-symbols-outlined">close</span>
         {/*  ><ArrowBackIcon />  */}
         </Fab>
         <br></br>

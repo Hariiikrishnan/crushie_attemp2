@@ -115,7 +115,7 @@ function App(){
             },
         };
         try{
-            const res= await axios.get("/post",config);
+            const res= await axios.get("http://localhost:3001/post",config);
             console.log(res.data.results);
             
             setPosts(res.data.results);
@@ -144,7 +144,7 @@ function App(){
         },
     };
     // console.log(id);
-    await axios.delete(`/post/${id}`,config).then((res)=>{
+    await axios.delete(`http://localhost:3001/post/${id}`,config).then((res)=>{
         setPosts((prevPosts)=>{
             return prevPosts.filter((value,index)=>{
                 return value._id!==id;

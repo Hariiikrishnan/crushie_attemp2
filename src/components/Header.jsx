@@ -24,7 +24,7 @@ function Header(){
                 setRegisterState(false);
               }} 
               style={{background:"none",color:"white",boxShadow:"none",alignItems: "flex-start",justifyContent:"left"}} >
-              +
+              <span class="material-symbols-outlined">logout</span>
               {/* <LogoutIcon/> */}
               </Fab>
     </div> 
