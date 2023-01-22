@@ -51,7 +51,7 @@ function CreateArea(props){
               //  setTimeStamp(new Date());
               console.log(post);
                 const body = JSON.stringify(post);
-                await axios.post("http://localhost:3001/post",body,config);
+                await axios.post("https://starfish-app-uva3q.ondigitalocean.app/post",body,config);
                 setPost({
                    date:"",
                    time:"",
@@ -81,7 +81,7 @@ function CreateArea(props){
       try{
         // setTimeStamp(new Date());
         const body = JSON.stringify(editPost);
-        await axios.post(`http://localhost:3001/edit/${id}`,body,config);
+        await axios.post(`https://starfish-app-uva3q.ondigitalocean.app/edit/${id}`,body,config);
         //  window.location.reload();
         // setPost({
         //   date:"",
