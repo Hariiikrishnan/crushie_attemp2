@@ -8,8 +8,8 @@ import axios from 'axios';
 // import "rsuite/dist/rsuite.min.css";
 
 import {LoginContext} from "./LoginAuth.jsx"
-
 import {AuthContext} from "./Auth.jsx"
+import {UserContext} from "./CurrentUser.jsx"
 
 function Register(){
 
@@ -25,6 +25,7 @@ function Register(){
 
     const [isLoggedIn,setLoggedIn] = useContext(LoginContext);
     const [authState,setAuthState] = useContext(AuthContext);
+    const [isCurrentUser,setCurrentUser]=useContext(UserContext);
     // const [users,setUsers]=useState([]);
     const [userAccount,setRegister]=useState({
         email:"",
@@ -80,6 +81,7 @@ function Register(){
                 setAuthState(res.data.token);
             })
             setLoggedIn(true);
+            setCurrentUser([userAccount])
             //  window.location.reload();
             console.log("Data Sent!!")
         }catch (err){

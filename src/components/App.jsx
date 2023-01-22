@@ -74,6 +74,7 @@ function App(){
              
             // console.log(newPost);
             // console.log(clickedID);
+            
             unspreadedEditPost = posts.filter((singlePost,index)=>{
                 // console.log(singlePost._id);
             return singlePost._id===clickedID
@@ -107,7 +108,7 @@ function App(){
     }
 
     async function getAllPosts(){
-       
+       console.log("called")
         const config ={
             headers : {
                 "Content-Type": "application/json",
@@ -116,7 +117,7 @@ function App(){
         };
         try{
             const res= await axios.get("http://localhost:3001/post",config);
-            console.log(res.data.results);
+            // console.log(res.data.results);
             
             setPosts(res.data.results);
             setLoading(false);
@@ -127,6 +128,7 @@ function App(){
     useEffect(()=>{
         getAllPosts();
     },[])
+
    
 
    function HomeBtnExpand(){
@@ -166,7 +168,7 @@ function App(){
     setPostExpand(false);
     
    }
-   console.log(isEdit);
+//    console.log(isEdit);
  
    function postExpand(id){
         console.log(id);
@@ -178,21 +180,25 @@ function App(){
       
         
    }
-//    console.log(isCurrentUser[0].username);
+//    console.log(isCurrentUser)
+//   console.log(isCurrentUser[0].username);
+//   console.log(posts);
           
     return <div>
         {/* <BrowserRouter> 
          <Routes> */}
-
-         <div class="HeadandLoad">
+         {
+            isExpanded || isEdit ? null : <div class="HeadandLoad">
          {/* <Route exact path="/" element={<Header />} /> */}
          <Header /> 
          { startLoading ? <CircularProgress className="loader" color="inherit" /> : null }
-         {/* <h2 class="below-box headUsername">Hello {isRegistered ? null : isCurrentUser[0].username}</h2> */}
+         <h2 class="below-box headUsername">Hello { isCurrentUser[0].username}</h2>
          </div>
+        } 
+        
          {/* <Route path="/" element= /> */}
          { 
-             isExpanded  || isPostExpanded || isEdit? null  :
+             isExpanded  || isPostExpanded || isEdit ? null  :
               <HomeBtn HomeOnClick={HomeBtnExpand}/> 
               } 
 
@@ -229,9 +235,9 @@ function App(){
             date={singlePost.date}
             time={singlePost.time}
             seenplace={singlePost.place}
-            createdAt={singlePost.createdAt}
-            updatedAt={singlePost.updatedAt}
-
+            createdAt={singlePost.createdTime}
+            
+            callforUpdateGet={getAllPosts}
             postClick={postExpand}
             
             />
@@ -275,7 +281,7 @@ function App(){
               {/* console.log(clickedID + "And " + index); */}
              return <CreateArea 
               onUpdate={handleUpdateReturn}  
-
+             
              
               handleBackBtn={backBtn}
               key={singlePost._id}

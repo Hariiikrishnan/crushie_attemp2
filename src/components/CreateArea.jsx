@@ -1,16 +1,19 @@
-import React,{useState,useContext} from "react";
+import React,{useState,useContext,useEffect} from "react";
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import LoupeIcon from '@mui/icons-material/Loupe';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import Fab from '@mui/material/Fab';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import {TimeStampContext} from "../login/TimeStamp.jsx";
 import axios from 'axios';
 
 import {AuthContext} from "../login/Auth.jsx";
 
 function CreateArea(props){
+  const [localtime,setTimeStamp]= useContext(TimeStampContext);
+
     const [post,setPost]=useState({
+        createdTime: new Date(),
         date:"",
         time:"",
         place:"",
@@ -22,8 +25,8 @@ function CreateArea(props){
     const [isLoading,setLoading]=useState(false);
 
     const [authState, ] = useContext(AuthContext);
-
- console.log(props);
+    
+ 
 
   function handleForm(event){
     console.log("Handling Form")
@@ -45,6 +48,8 @@ function CreateArea(props){
             },
         };
             try{
+              //  setTimeStamp(new Date());
+              console.log(post);
                 const body = JSON.stringify(post);
                 await axios.post("http://localhost:3001/post",body,config);
                 setPost({
@@ -56,10 +61,12 @@ function CreateArea(props){
                    response:""
                  });
                 //  window.location.reload();
+                
                 setLoading(false);
             }catch (err){
                 console.error("error ",err.res.data)
             }
+           
             props.onAdd(post);
   }
   async function handleUpdate(id){
@@ -72,9 +79,10 @@ function CreateArea(props){
       },
   };
       try{
+        // setTimeStamp(new Date());
         const body = JSON.stringify(editPost);
         await axios.post(`http://localhost:3001/edit/${id}`,body,config);
-        // window.location.reload();
+        //  window.location.reload();
         // setPost({
         //   date:"",
         //   time:"",
@@ -89,6 +97,7 @@ function CreateArea(props){
           console.error("error ",err.res.data)
         }
         props.onUpdate(editPost);
+        console.log(localtime)
    }
 
   function handleChange(event){
@@ -98,9 +107,9 @@ function CreateArea(props){
             // console.log(prevNotes);
             return {...prevNotes,[name]:value};
           })
-          
+        
         // console.log("changed");
-      //  console.log(post);
+      //  console.log(post); 
       //  console.log(name);
       
   }
@@ -115,11 +124,14 @@ function CreateArea(props){
       // console.log(prevNotes);
       return {...prevNotes,[name]:value};
     })
+    
+    // props.callforUpdateGet();
     // handleUpdate(editPost._id);
     // console.log(editPost);
     //  setEditPost(event.target.value);
-    //  console.log("Changinng for Editing")
+     
   }
+  // console.log(post);
 
     return  <div className="createArea">
  

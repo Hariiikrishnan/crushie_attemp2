@@ -172,7 +172,6 @@ body{
       color:black;
       font-family: 'Ubuntu', sans-serif;
       font-weight: 900;
-      margin-left:2%;
     }
     .saveBtn button{
       margin-top: 8%;
@@ -191,11 +190,9 @@ body{
       border-radius: 50%; */
       border-radius:50%;
       position: fixed;
-      top:75%;
-      left:75%;
-      /* height:100%;
+      height:100%;
       margin-left:75%;
-      margin-top:25%; */
+      margin-top:25%;
       /* display: fixed; */
       z-index: 1;
     }
@@ -298,7 +295,7 @@ body{
       padding:0% 7%;
     }
     .onlyEdit span{
-      color:#5500d3;
+      color:#d42d62;
       font-weight: bolder;
     }
     .onlyEdit.deleteHeart{
@@ -350,20 +347,22 @@ body{
   
   
     /* for mobile size design  */ 
-    @media  (min-width:320px) and (max-width:680px){
+    @media  (min-width:320px) and (max-width:480px){
       #Heading h1{
         font-size: medium;
        
       }
      
-     
+      .HomeBtn{
+        margin-top: 100%;
+      }
       .shortPost{
         padding: 5%;
         line-height: 120%;
         font-size: x-small;
       }
       .postTime{
-        margin-left:65%! important;
+        margin-left:35%! important;
       }
       .deleteHeart{
         /* left: 60%; */
@@ -371,14 +370,11 @@ body{
        .loader{
         margin-left: 10rem;
        }
-       .login {
-        margin: 15rem 0rem;
-      }
        .registerRedirect{
         margin:3% 0.2rem;
       } 
       .registerRedirect p{
-        margin:0% 1.1% ;
+        margin:0% 6px 0% auto;
         
       } 
       .registerRedirect p,a{

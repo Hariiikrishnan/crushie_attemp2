@@ -9,6 +9,7 @@ import Auth from "./login/Auth.jsx";
 import LoginAuth from "./login/LoginAuth.jsx";
 import RegisterAuth from "./login/RegisterAuth.jsx";
 import CurrentUser from "./login/CurrentUser.jsx";
+import TimeStamp from "./login/TimeStamp.jsx";
 // import {LoginAuth} from "./login/LoginAuth.jsx";
 
 import { useNavigate } from "react-router";
@@ -33,11 +34,13 @@ root.render(
     <RegisterAuth>
     <LoginAuth>
     <CurrentUser>
+    <TimeStamp>
       <Auth>
        {/* <Login />   */}
       <WholeApp />
       {/* <Register /> */}
       </Auth>
+      </TimeStamp>
     </CurrentUser>
     </LoginAuth>
       </RegisterAuth>

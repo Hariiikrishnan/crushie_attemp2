@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useContext } from "react";
 
-
+import {TimeStampContext} from "../login/TimeStamp.jsx";
 
 function ShortPost(props){
     // console.log(props)
@@ -10,9 +10,18 @@ function ShortPost(props){
     // const currentDate=Date.getDate
     // const currentMonth=Date.getMonth
     // console.log(currentTime)    .toLocaleString("default", { month: "long" });
-    var timeStamp = props.createdAt;
+    // var timeStamp = props.createdAt;
+    const [localtime,setTimeStamp]= useContext(TimeStampContext);
 
-    
+    console.log(localtime + " localtime variable");
+    // console.log(props.createdAt);
+    // if(timeStamp===undefined){
+    //     timeStamp=localtime.toString();
+    // }
+//    console.log(timeStamp + " timeStamp variable")
+//     console.log(timeStamp.slice(0,10))
+
+    // console.log(timeStamp.slice(4,15));
     return <div className="shortPost"  onClick={()=> {
         props.postClick(props.id)
       }}>
@@ -25,8 +34,9 @@ function ShortPost(props){
               <h1>{props.seenplace}</h1>
               <div class="postFoot">
               {/* <p>{months[currentMonth]}</p> */}
-              {/* <p>{props.createdAt.slice(0,10)}</p> */}
-              {/* <p>{TimeOff && timeStamp}</p> */}
+              {/* <p>{localtime.toString().slice(4,15)}</p> */}
+              {/* <p >{TimeOff && timeStamp}</p> */}
+              {/* <p  class="postTime">{localtime.toString().slice(16,24)}</p> */}
              {/* <p class="postTime">{currentTime}</p> */}
              </div>
     </div>
