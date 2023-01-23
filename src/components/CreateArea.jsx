@@ -8,6 +8,7 @@ import {TimeStampContext} from "../login/TimeStamp.jsx";
 import axios from 'axios';
 
 import {AuthContext} from "../login/Auth.jsx";
+import {UserContext} from "../login/CurrentUser.jsx";
 
 function CreateArea(props){
   const [localtime,setTimeStamp]= useContext(TimeStampContext);
@@ -25,7 +26,7 @@ function CreateArea(props){
     const [isLoading,setLoading]=useState(false);
 
     const [authState, ] = useContext(AuthContext);
-    
+    const [isCurrentUser,setCurrentUser] = useContext(UserContext);
  
 
   function handleForm(event){
@@ -51,7 +52,7 @@ function CreateArea(props){
               //  setTimeStamp(new Date());
               console.log(post);
                 const body = JSON.stringify(post);
-                await axios.post("https://starfish-app-uva3q.ondigitalocean.app/post",body,config);
+                await axios.post(`https://starfish-app-uva3q.ondigitalocean.app/post/${isCurrentUser.u_id}`,body,config);
                 setPost({
                    date:"",
                    time:"",

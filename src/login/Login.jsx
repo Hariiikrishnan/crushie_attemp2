@@ -76,12 +76,11 @@ function Login(){
     // }))
                 setLoggedIn(true)
             //    console.log(res.data);
-                // console.log(res.data.users);
+                console.log(res.data.user);
 
                 // setCurrentUser(res.data.users);
-                setCurrentUser(res.data.users.filter((singleUser)=>{
-                 return singleUser.username === loginAccount.username
-                         }));
+                setCurrentUser(res.data.user);
+                // console.log()
                 setAuthState(res.data.token);
                 // console.log(authState);
                 // console.log(isCurrentUser);
@@ -118,7 +117,7 @@ function Login(){
             {/* <label>Enter Username</label> */}
             <input type="text" name="username" onChange={handleChange} placeholder="Username" autoComplete="off"/>
             {/* <label>Enter Password</label> */}
-            <input type="password " name="password" onChange={handleChange} placeholder="Password" autoComplete="off"/>
+            <input type="password" name="password" onChange={handleChange} placeholder="Password" autoComplete="off"/>
             </div>
             <div class="below-box">
             {credentialsError ? <p class="below-box passwordError">Please Enter Credentials in all the Fields!</p> : null}

@@ -116,7 +116,7 @@ function App(){
             },
         };
         try{
-            const res= await axios.get("https://starfish-app-uva3q.ondigitalocean.app/post",config);
+            const res= await axios.get(`https://starfish-app-uva3q.ondigitalocean.app/post/${isCurrentUser.u_id}`,config);
             // console.log(res.data.results);
             
             setPosts(res.data.results);
@@ -181,7 +181,7 @@ function App(){
         
    }
 //    console.log(isCurrentUser)
-//   console.log(isCurrentUser[0].username);
+  console.log(isCurrentUser.username);
 //   console.log(posts);
           
     return <div>
@@ -192,7 +192,7 @@ function App(){
          {/* <Route exact path="/" element={<Header />} /> */}
          <Header /> 
          { startLoading ? <CircularProgress className="loader" color="inherit" /> : null }
-         <h2 class="below-box headUsername">Hello { isCurrentUser[0].username}</h2>
+         <h2 class="below-box headUsername">Hello { isCurrentUser.username}</h2>
          </div>
         } 
         

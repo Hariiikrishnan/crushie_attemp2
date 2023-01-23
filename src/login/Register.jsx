@@ -120,13 +120,13 @@ function Register(){
             <h2 class="below-box">Hello Annave!!</h2>
             <h2 class="below-box">Create an Account Here.</h2>
             <label>Enter Email Id</label>
-            <input type="email " name="email" onChange={handleChange}  placeholder="Email-Id" autoComplete="off" required/>
+            <input type="email" name="email" onChange={handleChange}  placeholder="Email-Id" autoComplete="off" required/>
             <label>Enter Username</label>
             <input type="text" name="username" onChange={handleChange}  placeholder="Username" autoComplete="off" required/>
             <label>Enter Password</label>
-            <input type="password " name="password"  onChange={handleChange} placeholder="Password" autoComplete="off" required/>
+            <input type="password" name="password"  onChange={handleChange} placeholder="Password" autoComplete="off" required/>
             <label>Re Enter Password</label>
-            <input type="password " name="confirmPassword" onChange={handleChange}  placeholder="Confirm Password" autoComplete="off" required/>
+            <input type="password" name="confirmPassword" onChange={handleChange}  placeholder="Confirm Password" autoComplete="off" required/>
   
             {credentialsError ? <p class="below-box passwordError">Please Enter Credentials in all the Fields!</p> : null}
             {passwordValid ? <p class="below-box passwordError">Password doesn't Match! Please Check Again</p> : null}
