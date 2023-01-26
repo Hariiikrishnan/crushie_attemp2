@@ -1,20 +1,11 @@
 import React,{useState,useContext} from "react";
 import axios from 'axios';
 
-
-// import { Button } from "@mui/material";
-// import { Button } from "rsuite";
-// // Default CSS
-// import "rsuite/dist/rsuite.min.css";
-
 import {LoginContext} from "./LoginAuth.jsx"
 import {AuthContext} from "./Auth.jsx"
 import {UserContext} from "./CurrentUser.jsx"
 
 function Register(){
-
-    // var passwordValue;
-    // var confirmValue;
 
     const [passwordValid,setPasswordError]=useState(false);
     const [passwordValue,setPasswordValue]=useState();
@@ -22,11 +13,10 @@ function Register(){
     const [credentialsError,setCredentialsError]=useState(false);
     const [startLoading,setLoading]=useState(false);
 
-
     const [isLoggedIn,setLoggedIn] = useContext(LoginContext);
     const [authState,setAuthState] = useContext(AuthContext);
     const [isCurrentUser,setCurrentUser]=useContext(UserContext);
-    // const [users,setUsers]=useState([]);
+  
     const [userAccount,setRegister]=useState({
         email:"",
         username:"",
@@ -36,16 +26,12 @@ function Register(){
 
     function handleChange(event){
         const {name,value}=event.target;
-
-       
         if (name==="password"){
             setPasswordValue(value)
         }else if(name==="confirmPassword"){
             setConfirmValue(value);
         }
-        // console.log(name + " " + value); 
         setRegister((prevNotes)=>{
-            // console.log(prevNotes);
             return {...prevNotes,[name]:value};
           });
     }
@@ -55,7 +41,6 @@ function Register(){
         if(userAccount.email==="" || userAccount.username==="" || userAccount.password ==="" || userAccount.confirmPassword===""){
             setCredentialsError(true);
         }
-        // console.log(passwordValue + "  " + confirmValue);
         else if(passwordValue!==confirmValue && confirmValue!==undefined){
              setPasswordError(true);   
          } else if(passwordValue===confirmValue){
@@ -64,8 +49,6 @@ function Register(){
              onSubmit();
          }
 
-        //  console.log("onClick Called")
-        
     }
 
     async function onSubmit(){
@@ -83,38 +66,12 @@ function Register(){
                 
             })
             setLoggedIn(true);
-            // setCurrentUser(res.data.user);
-            //  window.location.reload();
+           
             console.log("Data Sent!!")
         }catch (err){
             console.error("error ",err.res.data)
         }
     }
-// console.log(passwordValue + "  " + confirmValue);
-    // console.log(userAccount);
-
-
-    // function passwordValidation(event){
-    //     const {name,value}=event.target;
-    //     // console.log(name + " " + value);
-    //     if (name==="password"){
-    //         setPasswordValue(value)
-    //         // console.log(passwordValue);
-    //     }else{
-    //         setConfirmValue(value);
-    //     }
-    //     setPasswordValidation();  
-    // }
-    // function setPasswordValidation(){
-    //     console.log(passwordValue + "  " + confirmValue)
-    //     if(passwordValue!==confirmValue && confirmValue!==undefined){
-    //         setPasswordError(true);
-            
-    //     } else{
-    //         setPasswordError(false);
-    //     }
-    // }
-    
 
 
     return <div class="register">
@@ -135,11 +92,6 @@ function Register(){
             <div class="below-box">
             <button type="submit" onClick={handleClick}>{ startLoading ? <i class="fa fa-circle-o-notch fa-spin" style={{fontSize:"24px",padding:"5%"}}></i> : "Register" }</button>
 
-            {/* <p>Already have an Account?</p>
-            <a href="/" onClick={(e)=>{
-                e.preventDefault();
-                setRegisterState(true);
-            }}>Login now!</a> */}
             </div>
         </form>
 
