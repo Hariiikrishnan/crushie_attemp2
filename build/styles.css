@@ -335,6 +335,9 @@ body{
       color:#0200ac;
       /* font-weight: 600; */
     }
+    .post-place{
+      line-height: 120%;
+    }
     /* .heartEdit{
       position: relative;
     }
