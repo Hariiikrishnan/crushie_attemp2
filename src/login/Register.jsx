@@ -79,9 +79,11 @@ function Register(){
             await axios.post("https://starfish-app-uva3q.ondigitalocean.app/register",body,config).then((res)=>{
                 console.log(res.data);
                 setAuthState(res.data.token);
+                setCurrentUser(res.data.user);
+                
             })
             setLoggedIn(true);
-            setCurrentUser([userAccount])
+            // setCurrentUser(res.data.user);
             //  window.location.reload();
             console.log("Data Sent!!")
         }catch (err){

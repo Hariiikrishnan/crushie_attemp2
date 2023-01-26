@@ -19,6 +19,7 @@ function Login(){
     const [isLoggedIn,setLoggedIn] = useContext(LoginContext);
     const [isRegistered,setRegisterState] = useContext(RegisterContext);
     const [isCurrentUser,setCurrentUser]=useContext(UserContext);
+    const [passwordinvalid,setPasswordInvalid]=useState(false);
     // const [users,setUsers] = useState([]);
 
 
@@ -77,7 +78,7 @@ function Login(){
                 setLoggedIn(true)
             //    console.log(res.data);
                 console.log(res.data.user);
-
+                console.log(res.status)
                 // setCurrentUser(res.data.users);
                 setCurrentUser(res.data.user);
                 // console.log()

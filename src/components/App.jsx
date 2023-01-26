@@ -52,7 +52,7 @@ function App(){
     function onAdd(newPost){
         // console.log("Req for Adding");
       
-        //   console.log(newPost);
+          console.log(newPost);
      
         setPosts((prevPosts)=>{
             return  [...prevPosts,newPost]
@@ -109,6 +109,7 @@ function App(){
 
     async function getAllPosts(){
        console.log("called")
+       console.log(isCurrentUser)
         const config ={
             headers : {
                 "Content-Type": "application/json",

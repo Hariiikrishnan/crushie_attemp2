@@ -31,7 +31,7 @@ function ShortPost(props){
                   <h2>{props.time}</h2>
                   
              </div>
-              <h1>{props.seenplace}</h1>
+              <h1 class="post-place">{props.seenplace}</h1>
               <div class="postFoot">
               {/* <p>{months[currentMonth]}</p> */}
               {/* <p>{localtime.toString().slice(4,15)}</p> */}
