@@ -49,7 +49,7 @@ function Login(){
         };
         try{
             const body = JSON.stringify(loginAccount);
-           await axios.post("https://starfish-app-uva3q.ondigitalocean.app/login",body,config).then((res)=>{
+           await axios.post("https://starfish-app-uva3q.ondigitalocean.app/crushie/users/login",body,config).then((res)=>{
                 setLoggedIn(true)    
                 setCurrentUser(res.data.user);
                 setAuthState(res.data.token);

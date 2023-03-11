@@ -118,7 +118,7 @@ function App() {
     };
     await axios
       .delete(
-        `https://starfish-app-uva3q.ondigitalocean.app/post/${id}`,
+        `https://starfish-app-uva3q.ondigitalocean.app/crushie/moments/post/${id}`,
         config
       )
       .then((res) => {
