@@ -36,6 +36,7 @@ function Register(){
           });
     }
     function handleClick(event){
+        console.log(userAccount);
         setLoading(true)
         event.preventDefault();
         if(userAccount.email==="" || userAccount.username==="" || userAccount.password ==="" || userAccount.confirmPassword===""){
@@ -59,6 +60,7 @@ function Register(){
         };
         try{
             const body = JSON.stringify(userAccount);
+            console.log(body);
             await axios.post("https://starfish-app-uva3q.ondigitalocean.app/crushie/users/register",body,config).then((res)=>{
                 console.log(res.data);
                 setAuthState(res.data.token);

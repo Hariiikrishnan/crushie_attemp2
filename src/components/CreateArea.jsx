@@ -74,6 +74,7 @@ function CreateArea(props) {
     };
     try {
       const body = JSON.stringify(editPost);
+      console.log(body);
       await axios.post(
         `https://starfish-app-uva3q.ondigitalocean.app/crushie/moments/edit/${id}`,
         body,

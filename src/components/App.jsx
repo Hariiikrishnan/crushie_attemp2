@@ -88,7 +88,7 @@ function App() {
     };
     try {
       const res = await axios.get(
-        `https://starfish-app-uva3q.ondigitalocean.app/post/${isCurrentUser.u_id}`,
+        `https://starfish-app-uva3q.ondigitalocean.app/crushie/moments/post/${isCurrentUser.u_id}`,
         config
       );
 
@@ -118,7 +118,7 @@ function App() {
     };
     await axios
       .delete(
-        `https://starfish-app-uva3q.ondigitalocean.app/crushie/moments/post/${id}`,
+        `https://starfish-app-uva3q.ondigitalocean.app/crushie/moments/delete/${id}`,
         config
       )
       .then((res) => {
